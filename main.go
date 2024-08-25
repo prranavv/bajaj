@@ -53,7 +53,7 @@ func routes() *chi.Mux {
 		AllowCredentials: false,
 		MaxAge:           300, // Maximum value not ignored by any of major browsers
 	}))
-	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.Get("/bfhl", func(w http.ResponseWriter, r *http.Request) {
 		response := Response{
 			OperationCode: 1,
 		}
@@ -73,7 +73,7 @@ func routes() *chi.Mux {
 		w.Write(jsonData)
 	})
 
-	mux.Post("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.Post("/bfhl", func(w http.ResponseWriter, r *http.Request) {
 		body, err := io.ReadAll(r.Body)
 		if err != nil {
 			http.Error(w, "Unable to read request body", http.StatusBadRequest)
